@@ -15,14 +15,77 @@
 }
 
 .App {
-  width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   text-align: center;
   background-color: white;
   font-family: "Nunito", sans-serif;
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
+}
+
+.App.landingPage {
+  min-height: 100vh;
+  background-color: #212529;
+}
+
+.App-landingPage-img {
+  width: 60%;
+  height: 60%;
+}
+
+.App-landingPage-text {
+  display: flex;
+  flex-direction: column;
+  width: 281px;
+  height: 240px;
+  margin-left: 85px;
+  justify-content: space-between;
+}
+
+.App-landingPage-text h2 {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 27px;
+  line-height: 41px;
+  color: #ffffff;
+  /* justify-content: flex-start; */
+  text-align: left;
+}
+
+.App-landingPage-text span {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #ffffff;
+  text-align: left;
+}
+
+.App-landingPage-text button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 16px;
+  gap: 10px;
+  background-color: #fd377e;
+  border: 2px solid #fd377e;
+  border-radius: 8px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #ffffff;
+}
+
+.App-landingPage-text button:hover {
+  cursor: pointer;
+  background-color: white;
+  border: 2px solid white;
+  color: #fd377e;
 }
 
 .App-main {
@@ -35,9 +98,18 @@
   padding: 0 1rem;
 }
 
+.App-main-landingPage {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  padding: 0 1rem;
+}
+
 .App-main-form-total {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  width: 26%;
+  width: 32%;
 }

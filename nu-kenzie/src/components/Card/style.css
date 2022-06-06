@@ -37,9 +37,9 @@ ul {
   padding: 0;
 }
 
-/* .Card-container button img:hover {
-  src:       ;
-} */
+.Card-container button:hover {
+  cursor: pointer;
+}
 
 .Card-container-descriptionAndType {
   display: flex;
@@ -47,7 +47,7 @@ ul {
   text-transform: capitalize;
   justify-content: space-between;
   height: 4.25rem;
-  width: 20rem;
+  width: 18rem;
   align-items: flex-start;
 }
 
@@ -73,7 +73,7 @@ ul {
   border-left: 0.25rem solid #03b898;
 }
 
-.Card-container.saida {
+.Card-container.despesa {
   border-left: 0.25rem solid #e9ecef;
 }
 

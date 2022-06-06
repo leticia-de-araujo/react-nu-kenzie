@@ -19,11 +19,13 @@ const Form = ({ listTransactions, setListTransactions }) => {
       }
     });
 
-    if (transaction.type === "saída") {
+    if (transaction.type === "despesa") {
       transaction.value = -transaction.value;
     }
 
-    setListTransactions([...listTransactions, transaction]);
+    if (!isNaN(transaction.value)) {
+      setListTransactions([...listTransactions, transaction]);
+    }
   };
 
   const clearInputs = (event) => {
@@ -46,19 +48,26 @@ const Form = ({ listTransactions, setListTransactions }) => {
           id="descricao"
           name="description"
           placeholder="Digite aqui sua descrição"
+          required
         />
         <span>Ex: Compra de roupas</span>
       </div>
       <div className="Form-valor-tipo">
         <div className="Form-valor">
           <label htmlFor="valor">Valor</label>
-          <input type="text" id="valor" name="value" placeholder="R$ " />
+          <input
+            type="text"
+            id="valor"
+            name="value"
+            placeholder="R$ "
+            required
+          />
         </div>
         <div className="Form-tipo">
           <label htmlFor="tipo">Tipo de valor</label>
           <select name="type" id="tipo">
             <option value="entrada">Entrada</option>
-            <option value="saída">Despesa</option>
+            <option value="despesa">Despesa</option>
           </select>
         </div>
       </div>

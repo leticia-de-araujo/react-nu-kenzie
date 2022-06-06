@@ -1,34 +1,64 @@
 import "./style.css";
 import cardVazio from "./../../imgs-icons/NoCard.jpg";
-import lixeiraDefault from "./../../imgs-icons/trash=Default.svg";
-// import lixeiraHover from "./../../imgs-icons/trash=Hover.svg";
+import trashDefault from "./../../imgs-icons/trash=Default.svg";
+import trashHover from "./../../imgs-icons/trash=Hover.svg";
+import { useState } from "react";
 
-const Card = ({ listTransactions }) => {
+const Card = ({ listTransactions, setListTransactions }) => {
+  const [srcTrashStatus, setSrcTrashStatus] = useState(trashDefault);
+
+  const trashHoverSrc = (event) => {
+    if (srcTrashStatus === trashDefault) {
+      setSrcTrashStatus(trashHover);
+    } else if (srcTrashStatus === trashHover) {
+      setSrcTrashStatus(trashDefault);
+    }
+    event.target.src = srcTrashStatus;
+  };
+
+  const removeTransaction = (transactionRemove) => {
+    const transactionsFiltered = listTransactions.filter((transaction) => {
+      return transaction !== transactionRemove;
+    });
+    setListTransactions([...transactionsFiltered]);
+  };
+
   return listTransactions.length !== 0 ? (
     <ul>
-      {listTransactions.map(({ type, value, description }, index) =>
-        type !== "entrada" ? (
-          <li className="Card-container saida" key={index}>
+      {listTransactions.map((transaction, index) => {
+        return (
+          <li
+            className={
+              transaction.type === "entrada"
+                ? "Card-container entrada"
+                : "Card-container despesa"
+            }
+            key={index}
+          >
             <div className="Card-container-descriptionAndType">
-              <h3>{description}</h3>
-              <span>Despesa</span>
+              <h3>{transaction.description}</h3>
+              <span>{transaction.type}</span>
             </div>
-            <p>R$ {parseFloat(Math.abs(value)).toFixed(2).replace(".", ",")}</p>
-            <img src={lixeiraDefault} alt="Botão Lixeira" />
-          </li>
-        ) : (
-          <li className="Card-container entrada" key={index}>
-            <div className="Card-container-descriptionAndType">
-              <h3>{description}</h3>
-              <span>{type}</span>
-            </div>
-            <p>R$ {parseFloat(Math.abs(value)).toFixed(2).replace(".", ",")}</p>
-            <button>
-              <img src={lixeiraDefault} alt="Botão Lixeira" />
+            <p>
+              R${" "}
+              {parseFloat(Math.abs(transaction.value))
+                .toFixed(2)
+                .replace(".", ",")}
+            </p>
+            <button
+              onClick={() => {
+                removeTransaction(transaction);
+              }}
+            >
+              <img
+                onMouseOver={(event) => trashHoverSrc(event)}
+                src={trashDefault}
+                alt="Botão Lixeira"
+              />
             </button>
           </li>
-        )
-      )}
+        );
+      })}
     </ul>
   ) : (
     <ul>

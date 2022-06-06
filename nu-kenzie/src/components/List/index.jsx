@@ -1,7 +1,7 @@
 import Card from "../Card";
 import "./style.css";
 
-const List = ({ listTransactions }) => {
+const List = ({ listTransactions, setListTransactions }) => {
   return (
     <div className="List">
       <div className="List-header">
@@ -13,7 +13,10 @@ const List = ({ listTransactions }) => {
         </nav>
       </div>
       <div className="List-ul">
-        <Card listTransactions={listTransactions} />
+        <Card
+          listTransactions={listTransactions}
+          setListTransactions={setListTransactions}
+        />
       </div>
     </div>
   );
