@@ -8,8 +8,6 @@ const TotalMoney = ({ listTransactions }) => {
       values.push(element.value);
     });
 
-    console.log(values);
-
     const total = values.reduce(
       (previousValue, currentValue) => previousValue + currentValue,
       0

@@ -1,12 +1,11 @@
 ul {
   width: 100%;
-  max-height: 28rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
   gap: 1.688rem;
-  padding: 0.5rem 0;
+  padding: 0.5rem 0 1.2rem 0;
 }
 
 .Card-container {
@@ -75,6 +74,30 @@ ul {
 
 .Card-container.despesa {
   border-left: 0.25rem solid #e9ecef;
+}
+
+.Card-container-trash-div {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e9ecef;
+  width: 1.375rem;
+  height: 1.375rem;
+  border-radius: 0.154rem;
+}
+
+.Card-container-trash-div > svg {
+  color: #343a40;
+  width: 0.563rem;
+  height: 0.625rem;
+}
+
+.Card-container-trash-div:hover {
+  background-color: #343a40;
+}
+
+.Card-container-trash-div:hover > svg {
+  color: #f8f9fa;
 }
 
 .Card-container-vazio-texto p {

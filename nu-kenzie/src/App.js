@@ -2,7 +2,6 @@ import { useState } from "react";
 import "./App.css";
 import logo from "./imgs-icons/Nu.svg";
 import imgHome from "./imgs-icons/image-home.svg";
-import Card from "./components/Card";
 import Form from "./components/Form";
 import Header from "./components/Header";
 import List from "./components/List";
@@ -10,6 +9,8 @@ import TotalMoney from "./components/TotalMoney";
 
 function App() {
   const [listTransactions, setListTransactions] = useState([]);
+
+  const [filteredTransactions, setFilteredTransactions] = useState([]);
 
   const [landingPage, setLandingPage] = useState(true);
 
@@ -43,32 +44,24 @@ function App() {
         landingPage={landingPage}
         setLandingPage={setLandingPage}
         changePage={changePage}
-      ></Header>
+      />
       <main className="App-main">
         <section className="App-main-form-total">
           <Form
             listTransactions={listTransactions}
             setListTransactions={setListTransactions}
-          ></Form>
-          <TotalMoney listTransactions={listTransactions}></TotalMoney>
+          />
+          <TotalMoney listTransactions={listTransactions} />
         </section>
         <List
           listTransactions={listTransactions}
           setListTransactions={setListTransactions}
-        >
-          <Card
-            listTransactions={listTransactions}
-            setListTransactions={setListTransactions}
-          ></Card>
-        </List>
+          filteredTransactions={filteredTransactions}
+          setFilteredTransactions={setFilteredTransactions}
+        ></List>
       </main>
     </div>
   );
 }
 
 export default App;
-
-// [
-//   { description: "Salário recebido", type: "entrada", value: 2500 },
-//   { description: "Conta de luz", type: "despesa", value: -150 },
-// ]
