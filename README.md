@@ -13,3 +13,5 @@ Some basic concepts of React.js were used, such as components, props, state, and
 App link: https://lnkd.in/dt5_rPu5
 
 Obs: The app is in Portuguese-BR.
+
+<img src="https://j.gifs.com/99yLRJ.gif" width=550 height=300/>
