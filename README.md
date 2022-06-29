@@ -9,3 +9,5 @@ Technologies used:
 - React
 
 App link: https://lnkd.in/dt5_rPu5
+
+Obs: The app is in Portuguese-BR.
